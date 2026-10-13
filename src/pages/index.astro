@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../site.config";
+import { formatDate, getPosts } from "../posts";
+import { url } from "../url";
+
+const posts = await getPosts();
+---
+<Base>
+  <p class="intro">{SITE.description}</p>
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <a href={url(`blog/${post.id}/`)}>{post.data.title}</a>
+        <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, SITE.lang)}</time>
+      </li>
+    ))}
+  </ul>
+  {posts.length === 0 && <p class="intro">Todavía no hay artículos.</p>}
+</Base>

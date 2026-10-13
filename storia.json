@@ -1,0 +1,18 @@
+{
+  "id": "astro-minimal",
+  "name": "Minimal",
+  "framework": "astro",
+  "design": "minimal",
+  "tier": "free",
+  "description": "Solo texto, tipografía cuidada y nada que distraiga de lo que escribes.",
+  "previewUrl": "https://storia-templates.github.io/astro-minimal/",
+  "screenshots": [],
+  "features": [
+    "Resaltado de código",
+    "RSS",
+    "Carga instantánea"
+  ],
+  "contentPath": "src/content/blog/{{ slug }}.md",
+  "frontmatterTemplate": "title: \"{{ title }}\"\ndescription: \"{{ excerpt }}\"\npubDate: \"{{ published_at_iso }}\"\ntags: [{{ tags_yaml_array }}]\nheroImage: \"{{ seo_image }}\"\ndraft: false",
+  "pagesBuild": "workflow"
+}

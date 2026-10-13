@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+import { SITE } from "../site.config";
+import { url } from "../url";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = SITE.description } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE.title}` : SITE.title;
+---
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href={url("favicon.svg")} type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={url("rss.xml")} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-title" href={url()}>{SITE.title}</a>
+        <nav class="site-nav">
+          <a href={url()}>Artículos</a>
+          <a href={url("rss.xml")}>RSS</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">© {new Date().getFullYear()} {SITE.author} · Hecho con Storia</div>
+    </footer>
+  </body>
+</html>
