@@ -2,7 +2,7 @@
 
 Solo texto, tipografía cuidada y nada que distraiga de lo que escribes.
 
-Plantilla de blog de [Storia](https://github.com/storia-app). Demo: https://storia-templates.github.io/astro-minimal/
+Plantilla de blog de [Storia](https://github.com/storia-app). Demo: https://storia-app.github.io/astro-minimal/
 
 - Resaltado de código
 - RSS
